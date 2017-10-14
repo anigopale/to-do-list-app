@@ -24,7 +24,7 @@ export function changePending(data){
 }
 export function changeCompleted(data){
   return{
-    type: 'CHANGE_PENDING',
+    type: 'CHANGE_COMPLETED',
     payload: data
   }
 }
