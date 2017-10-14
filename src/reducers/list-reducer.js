@@ -1,17 +1,19 @@
 import _ from 'lodash';
 
 export default function(state=[],action){
-  console.log("payload reached:",action.payload);
-  const temp = _.uniq([...state, action.payload]);
 
-  console.log(temp);
    switch (action.type) {
     case 'INSERT_ELEMENT':
       return _.uniq([...state, action.payload]);
-    break;
+
+
     case 'DELETE_ITEM':
-    console.log("delete payload", action.payload);
+      const data = action.payload;
+      _.pull(state, data);
+      console.log("state after deletion:",state);
       return state;
-   }
-  return state;
+
+    default:
+      return state;
+  }
 }
