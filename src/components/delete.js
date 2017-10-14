@@ -14,6 +14,11 @@ class Delete extends Component{
 
 
   renderList(){
+    if(this.props.list.length == 0){
+      return(
+        <div>Nothing to delete</div>
+      )
+    }
     return this.props.list.map((item) => {
       return (
         <li

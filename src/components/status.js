@@ -6,6 +6,12 @@ import { changePending, changeCompleted } from '../actions';
 
 class Status extends Component {
   renderPending(){
+    if(this.props.pending.length==0){
+      return(
+        <div>All tasks completed</div>
+      )
+    }
+
       return this.props.pending.map((element) => {
       return(
         <li
@@ -18,6 +24,11 @@ class Status extends Component {
   }
 
   renderCompleted(){
+    if(this.props.completed.length==0) {
+      return(
+        <div>All tasks pending</div>
+      )
+    }
 
     return this.props.completed.map((element) => {
       return(

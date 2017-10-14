@@ -22,6 +22,24 @@ class App extends Component {
 
     console.log("app's props:",this.props.list);
 
+    if(this.props.list.length==0){
+      return(
+      <div>
+        <h1>Home</h1>
+        <div>
+          <Link to="/add">
+            <button className="btn btn-primary">Add</button>
+          </Link>
+          <Link to="/delete">
+            <button className="btn btn-danger">Delete</button>
+          </Link>
+        </div>
+          <div><h3>Nothing to show</h3></div>
+        </div>
+      )
+    }
+
+
     return (
       <div>
         <h1>Home</h1>
