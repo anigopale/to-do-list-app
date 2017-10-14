@@ -27,7 +27,7 @@ class Add extends Component{
     return(
       <div>
         <Link to='/'>
-          <button className="btn btn-danger">back</button>
+          <button className="btn btn-danger">Back</button>
         </Link>
         <div>
           <h1>Add elements to list</h1>

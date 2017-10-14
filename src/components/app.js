@@ -33,7 +33,7 @@ class App extends Component {
             <button className="btn btn-danger">Delete</button>
           </Link>
 
-          <h3>List:</h3>
+          <h3>List</h3>
 
           <div>
             <ul className="list-group">

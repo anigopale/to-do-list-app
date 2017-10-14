@@ -43,7 +43,7 @@ class Status extends Component {
 
         <div className="row">
           <div className="col-xs-6">
-            <h3>Pending:</h3>
+            <h3>Pending</h3>
             <Link to="/status">
               <ul className="list-group">
                 {this.renderPending()}
@@ -52,7 +52,7 @@ class Status extends Component {
           </div>
 
           <div className="col-xs-6">
-            <h3>Completed:</h3>
+            <h3>Completed</h3>
             <Link to="/status">
               <ul className="list-group">
                 {this.renderCompleted()}
