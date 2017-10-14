@@ -32,6 +32,9 @@ class App extends Component {
           <Link to="/delete">
             <button className="btn btn-danger">Delete</button>
           </Link>
+
+          <h3>List:</h3>
+
           <div>
             <ul className="list-group">
               {this.renderList()}
