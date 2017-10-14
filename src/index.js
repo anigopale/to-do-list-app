@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
+import Status from './components/status';
 import Add from './components/add';
 import Delete from './components/delete';
 import reducers from './reducers';
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/add" component={Add} />
           <Route path="/delete" component={Delete} />
+          <Route path="/status" component={Status} />
           <Route path="/" component={App} />
         </Switch>
       </div>

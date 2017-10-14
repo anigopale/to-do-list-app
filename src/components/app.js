@@ -37,6 +37,9 @@ class App extends Component {
               {this.renderList()}
             </ul>
           </div>
+          <Link to="/status">
+            <button className="btn btn-secondary">Status</button>
+          </Link>
         </div>
       </div>
     );
