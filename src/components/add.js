@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { insertElement } from '../actions';
 
 class Add extends Component{
   constructor(props){
@@ -11,12 +14,14 @@ class Add extends Component{
 
   onFormSubmit(event){
     event.preventDefault();
+    console.log(this.state.term);
+    this.props.insertElement(this.state.term);
     this.setState({term: ""});
   }
 
   onInputChange(event){
     this.setState({term: event.target.value});
-    console.log(event.target.value);
+
   }
   render(){
     return(
@@ -43,4 +48,10 @@ class Add extends Component{
   }
 }
 
-export default Add;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ insertElement }, dispatch);
+}
+
+
+
+export default connect(null, mapDispatchToProps)(Add);

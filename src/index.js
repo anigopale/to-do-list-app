@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
 import Add from './components/add';
+import Delete from './components/delete';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
@@ -16,6 +17,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/add" component={Add} />
+          <Route path="/delete" component={Delete} />
           <Route path="/" component={App} />
         </Switch>
       </div>

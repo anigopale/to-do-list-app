@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-
+import ListReducer from './list-reducer';
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  list: ListReducer
 });
 
 export default rootReducer;

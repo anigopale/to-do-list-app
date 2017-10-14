@@ -10,9 +10,10 @@ export default class App extends Component {
           <Link to="/add">
             <button className="btn btn-primary">Add</button>
           </Link>
-          <Link to="">
+          <Link to="/delete">
             <button className="btn btn-danger">Delete</button>
           </Link>
+          
         </div>
       </div>
     );
