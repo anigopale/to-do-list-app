@@ -4,13 +4,17 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.renderList = this.renderList.bind(this);
+  }
 
   renderList() {
-    return _.map(this.props.list, (element) => {
+    return this.props.list.map((element) => {
       return (
-        <li className="list-group-item">{element}</li>
+        <li key={element} className="list-group-item" >{element}</li>
       );
-    });
+    }, this)
 
   }
 
