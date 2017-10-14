@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changePending, changeCompleted } from '../actions';
 
 class Status extends Component {
   renderPending(){
     return this.props.pending.map((element) => {
       return(
-        <li className="list-group-item" key={element}>{element}</li>
+        <li
+          className="list-group-item"
+          key={element}
+          onClick={() => this.props.changePending(element)}
+          >{element}</li>
       )
     });
   }
@@ -14,7 +20,11 @@ class Status extends Component {
   renderCompleted(){
     return this.props.completed.map((element) => {
       return(
-        <li className="list-group-item" key={element}>{element}</li>
+        <li
+          className="list-group-item"
+          key={element}
+          onClick={() => this.props.changeCompleted(element)}
+          >{element}</li>
       )
     })
   }
@@ -27,19 +37,35 @@ class Status extends Component {
         <Link to="/">
           <button className="btn btn-danger">Back</button>
         </Link>
+        <div><h1>Click to modify</h1></div>
         <div>
           pending
         </div>
-        <ul className="list-group">
-          {this.renderPending()}
-        </ul>
+
+        <Link to="/status">
+          <ul className="list-group">
+            {this.renderPending()}
+          </ul>
+        </Link>
+
         <div>completed</div>
-        <ul className="list-group">
-          {this.renderCompleted()}
-        </ul>
+
+        <Link to="/status">
+          <ul className="list-group">
+            {this.renderCompleted()}
+          </ul>
+        </Link>
+
       </div>
     );
   }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    changePending,
+    changeCompleted
+  }, dispatch)
 }
 
 function mapStateToProps(state){
@@ -49,4 +75,4 @@ function mapStateToProps(state){
   };
 }
 
-export default connect(mapStateToProps)(Status);
+export default connect(mapStateToProps,mapDispatchToProps)(Status);

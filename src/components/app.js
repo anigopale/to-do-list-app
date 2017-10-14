@@ -24,7 +24,7 @@ class App extends Component {
 
     return (
       <div>
-        home
+        <h1>Home</h1>
         <div>
           <Link to="/add">
             <button className="btn btn-primary">Add</button>

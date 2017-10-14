@@ -15,3 +15,16 @@ export function deleteItem(data){
     payload: data
   }
 }
+
+export function changePending(data){
+  return{
+    type: 'CHANGE_PENDING',
+    payload: data
+  }
+}
+export function changeCompleted(data){
+  return{
+    type: 'CHANGE_PENDING',
+    payload: data
+  }
+}

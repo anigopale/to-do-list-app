@@ -30,7 +30,7 @@ class Add extends Component{
           <button className="btn btn-danger">back</button>
         </Link>
         <div>
-          Add elements to list
+          <h1>Add elements to list</h1>
         </div>
 
         <form onSubmit={this.onFormSubmit} className="input-group">

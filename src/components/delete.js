@@ -36,7 +36,9 @@ class Delete extends Component{
         <Link to='/'>
           <button className="btn btn-danger">Back</button>
         </Link>
-        <div>Click to delete</div>
+        <div>
+          <h1>Click To Delete</h1>
+        </div>
         <Link to='/delete'>
           <ul className="list-group">
             {this.renderList()}
