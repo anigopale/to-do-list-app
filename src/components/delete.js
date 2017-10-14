@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { deleteItem } from '../actions';
 
 class Delete extends Component{
   constructor(props){
@@ -9,35 +11,20 @@ class Delete extends Component{
 
   }
 
-  deleteItem(item){
-    console.log(item)
-  }
+
 
   renderList(){
     return this.props.list.map((item) => {
       return (
         <li
           key={item}
-          onClick={() => this.deleteItem(item)}
+          onClick={() => this.props.deleteItem(item)}
           className="list-group-item">
             {item}
         </li>
       );
     });
   }
-  //
-  // renderList() {
-  //   return this.props.list.map((element) => {
-  //     return (
-  //       <li
-  //         key={}
-  //         className="list-group-item"
-  //         onClick={this.onItemClick()} >{element}
-  //       </li>
-  //     );
-  //   }, this)
-  //
-  // }
 
 
 
@@ -58,8 +45,12 @@ class Delete extends Component{
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ deleteItem }, dispatch);
+}
+
 function mapStateToProps(state) {
   return { list: state.list };
 }
 
-export default connect(mapStateToProps)(Delete);
+export default connect(mapStateToProps,mapDispatchToProps)(Delete);

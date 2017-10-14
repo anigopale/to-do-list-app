@@ -6,8 +6,12 @@ export default function(state=[],action){
 
   console.log(temp);
    switch (action.type) {
-     case 'INSERT_ELEMENT':
-     return _.uniq([...state, action.payload]);
+    case 'INSERT_ELEMENT':
+      return _.uniq([...state, action.payload]);
+    break;
+    case 'DELETE_ITEM':
+    console.log("delete payload", action.payload);
+      return state;
    }
   return state;
 }
