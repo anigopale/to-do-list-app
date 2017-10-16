@@ -77,7 +77,6 @@ class Status extends Component {
                   transitionName="completed"
                   transitionEnterTimeout="500"
                   transitionLeaveTimeout="0"
-                  className="completed"
                   >
                   {this.renderCompleted()}
               </ReactCSSTransitionGroup>
