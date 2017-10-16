@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteItem } from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Delete extends Component{
   constructor(props){
@@ -46,7 +47,13 @@ class Delete extends Component{
         </div>
         <Link to='/delete'>
           <ul className="list-group">
-            {this.renderList()}
+            <ReactCSSTransitionGroup
+              transitionName="delete"
+              transitionEnterTimeout="500"
+              transitionLeaveTimeout="500"
+              >
+              {this.renderList()}
+            </ReactCSSTransitionGroup>
           </ul>
         </Link>
       </div>

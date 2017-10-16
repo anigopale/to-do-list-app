@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changePending, changeCompleted } from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Status extends Component {
   renderPending(){
@@ -57,7 +58,13 @@ class Status extends Component {
             <h3>Pending</h3>
             <Link to="/status">
               <ul className="list-group">
-                {this.renderPending()}
+                <ReactCSSTransitionGroup
+                  transitionName="pending"
+                  transitionEnterTimeout="500"
+                  transitionLeaveTimeout="0"
+                  >
+                  {this.renderPending()}
+                </ReactCSSTransitionGroup>
               </ul>
             </Link>
           </div>
@@ -66,7 +73,14 @@ class Status extends Component {
             <h3>Completed</h3>
             <Link to="/status">
               <ul className="list-group">
-                {this.renderCompleted()}
+                <ReactCSSTransitionGroup
+                  transitionName="completed"
+                  transitionEnterTimeout="500"
+                  transitionLeaveTimeout="0"
+                  className="completed"
+                  >
+                  {this.renderCompleted()}
+              </ReactCSSTransitionGroup>
               </ul>
             </Link>
           </div>

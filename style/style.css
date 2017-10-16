@@ -1,0 +1,38 @@
+
+.pending-enter {
+  opacity: 0;
+  right: 100px;
+
+}
+
+.pending-enter-active {
+  opacity:100;
+  right: 0px;
+
+  transition: .5s ease-in all;
+}
+
+.completed-enter {
+  opacity: 0;
+  right: -100px;
+
+}
+
+.completed-enter-active {
+  opacity:100;
+  right: 0px;
+
+  transition: .5s ease-in all;
+}
+
+
+.delete-leave {
+  right:0px;
+  opacity:100;
+}
+
+.delete-leave-active {
+  right: 0px;
+  opacity: 0;
+  transition: .5s ease-out all;
+}
