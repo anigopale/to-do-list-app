@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { deleteItem } from '../actions';
+import { bindActionCreators } from 'redux';
 
 class App extends Component {
   constructor(props){
@@ -12,9 +14,16 @@ class App extends Component {
   renderList() {
     return this.props.list.map((element) => {
       return (
-        <li key={element} className="list-group-item" >{element}</li>
+        <li key={element} className="list-group-item" >
+          <div className="input-group">
+            <div>{element}</div>
+              <span className="input-group-btn">
+                <Link to="/"><button onClick={()=> this.props.deleteItem(element)} className="btn btn-danger pull-xs-right">Delete</button></Link>
+              </span>
+            </div>
+        </li>
       );
-    }, this)
+    })
 
   }
 
@@ -67,8 +76,11 @@ class App extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ deleteItem }, dispatch);
+}
 function mapStateToProps(state) {
   return { list: state.list };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
